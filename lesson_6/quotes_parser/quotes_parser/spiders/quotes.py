@@ -28,7 +28,7 @@ class QuotesSpider(scrapy.Spider):
          
         for xml_quote in quotes:
             author_link = xml_quote.xpath('//small[contains(@class, "author")]/text()').get()
-            author_link_page = (f"http://quotes.toscrape.com/author/{author_link.replace(' ', '-').replace('.','')}/")
+            author_link_page = (f"http://quotes.toscrape.com/author/{author_link.replace(' ', '-').replace('.','-').replace('--', '-')}/")
             print('*'*50)
             print(author_link_page)
             yield response.follow(url=author_link_page, callback=self.author_parser)
