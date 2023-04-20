@@ -13,4 +13,4 @@ if __name__ == '__main__':
     process = CrawlerProcess(settings=settings)
     process.crawl(BooksSpider)
 
-    reactor.start()
+    reactor.run()
